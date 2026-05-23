@@ -1,296 +1,269 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Zap, Heart, Shield, BookOpen } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from 'react';
+import { ArrowRight, Check, Zap, Brain, Shield, Sparkles } from 'lucide-react';
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const productImageUrl = '/manus-storage/ChatGPTImage18demai.de2026,21_05_29_e328e853.png';
 
   return (
-    <div className="min-h-screen bg-white text-foreground">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm border-b border-border z-50">
-        <div className="container flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <Brain className="w-6 h-6 text-primary" />
-            <span className="text-xl font-bold text-primary">Synaptigen24</span>
-          </div>
-          <div className="text-sm text-muted-foreground">Análise de Marketing</div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 md:px-8">
-        <div className="container max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left: Text */}
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-blue-50 text-primary rounded-full text-sm font-medium">
-                ✨ Análise de Engenharia Reversa
-              </div>
-              <h1 className="text-foreground leading-tight">
-                Memória Afiada em Qualquer Idade
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Descubra os segredos de marketing por trás do Synaptigen24. Uma análise completa de dores, desejos, emoções e estratégias criativas que convertem clientes.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-blue-800 text-white"
-                  onClick={() => document.getElementById("analysis")?.scrollIntoView({ behavior: "smooth" })}
-                >
-                  Ver Análise Completa
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  onClick={() => window.open("https://synaptigen24.com/text.php", "_blank")}
-                >
-                  Ir para Synaptigen
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Right: Visual */}
-            <div className="relative h-80 md:h-96 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl opacity-50"></div>
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <Brain className="w-24 h-24 text-primary opacity-80" />
-                <div className="text-center space-y-2">
-                  <p className="text-sm font-semibold text-primary">Neurônios Conectados</p>
-                  <p className="text-xs text-muted-foreground">Comunicação Otimizada</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent"></div>
-
-      {/* Analysis Section */}
-      <section id="analysis" className="py-20 px-4 md:px-8 bg-muted/30">
-        <div className="container max-w-6xl">
-          <h2 className="text-center mb-16 text-foreground">Elementos de Marketing Identificados</h2>
-
-          {/* Grid of Insights */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {/* Dores */}
-            <div className="bg-white p-8 rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Zap className="w-6 h-6 text-accent" />
-                <h3 className="text-xl font-bold text-foreground">Dores (Pains)</h3>
-              </div>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>Esquecimento e perda de memória recente</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>"Brain fog" e dificuldade de concentração</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>Medo do declínio cognitivo associado à idade</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>Lentidão no raciocínio e aprendizado</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Desejos */}
-            <div className="bg-white p-8 rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Heart className="w-6 h-6 text-secondary" />
-                <h3 className="text-xl font-bold text-foreground">Desejos (Desires)</h3>
-              </div>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex gap-2">
-                  <span className="text-secondary font-bold">•</span>
-                  <span>Manter memória saudável até a velhice</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-secondary font-bold">•</span>
-                  <span>Clareza mental e foco aguçado</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-secondary font-bold">•</span>
-                  <span>Agilidade mental sustentada</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-secondary font-bold">•</span>
-                  <span>Aprender mais rápido e lembrar sem esforço</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Emoções */}
-            <div className="bg-white p-8 rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Heart className="w-6 h-6 text-accent" />
-                <h3 className="text-xl font-bold text-foreground">Emoções (Emotions)</h3>
-              </div>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex gap-2">
-                  <span className="text-accent font-bold">•</span>
-                  <span><strong>Medo:</strong> De perder independência e memórias</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-accent font-bold">•</span>
-                  <span><strong>Esperança:</strong> Solução natural e simples existe</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-accent font-bold">•</span>
-                  <span><strong>Segurança:</strong> Garantia de 180 dias</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-accent font-bold">•</span>
-                  <span><strong>Alívio:</strong> Causa raiz identificada e solucionável</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Público-Alvo */}
-            <div className="bg-white p-8 rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-3 mb-4">
-                <Shield className="w-6 h-6 text-primary" />
-                <h3 className="text-xl font-bold text-foreground">Público-Alvo</h3>
-              </div>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span><strong>Primário:</strong> Homens/mulheres 50+ preocupados com saúde cerebral</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span><strong>Secundário:</strong> Profissionais de alta performance</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>Buscam vantagem cognitiva e clareza mental</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Key Promises */}
-          <div className="bg-gradient-to-r from-blue-50 to-green-50 p-12 rounded-2xl border border-blue-100">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Promessas Centrais</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Memória Saudável</h4>
-                  <p className="text-sm text-muted-foreground">Suporte a uma memória saudável na velhice</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Brain className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Clareza Mental</h4>
-                  <p className="text-sm text-muted-foreground">Foco imediato e clareza mental</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Limpeza Neural</h4>
-                  <p className="text-sm text-muted-foreground">Limpeza do acúmulo de açúcar nos neurônios</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Garantia Total</h4>
-                  <p className="text-sm text-muted-foreground">180 dias de garantia ou dinheiro de volta</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Creative Angles Section */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="container max-w-6xl">
-          <h2 className="text-center mb-16 text-foreground">5 Ângulos Criativos de Meta Ads</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "O Segredo da Longevidade Mental", desc: "Idade não precisa significar declínio cognitivo" },
-              { title: "Desvendando o Nevoeiro Mental", desc: "Restaurar clareza mental e produtividade" },
-              { title: "A Revolução dos Probióticos", desc: "Abordagem inovadora para saúde cerebral" },
-              { title: "Memória Afiada em 180 Dias", desc: "Garantia de satisfação e remoção de risco" },
-              { title: "O Açúcar é o Vilão", desc: "Causa raiz do declínio cognitivo revelada" },
-            ].map((angle, i) => (
-              <div key={i} className="bg-card p-6 rounded-xl border border-border hover:border-primary transition-colors">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-bold text-sm">{i + 1}</span>
-                  </div>
-                  <h4 className="font-semibold text-foreground">{angle.title}</h4>
-                </div>
-                <p className="text-sm text-muted-foreground">{angle.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-primary/5 to-secondary/5">
-        <div className="container max-w-4xl text-center">
-          <h2 className="mb-6 text-foreground">Pronto para Converter Mais Clientes?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Acesse a página completa do Synaptigen24 e aplique os insights de marketing descobertos nesta análise.
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-accent hover:bg-orange-600 text-white animate-pulse"
-            onClick={() => window.open("https://synaptigen24.com/text.php", "_blank")}
-          >
-            Ir para Synaptigen24
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
-          <p className="text-xs text-muted-foreground mt-6">
-            Clique para acessar a página do produtor e ver a presell em ação
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border py-8 px-4 md:px-8">
-        <div className="container max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+    <div className={`${isDark ? 'dark' : ''} transition-colors duration-300`}>
+      <div className={`min-h-screen ${isDark ? 'bg-gradient-to-br from-slate-950 via-slate-900 to-black' : 'bg-gradient-to-br from-white via-slate-50 to-slate-100'}`}>
+        
+        {/* Navigation */}
+        <nav className={`fixed top-0 w-full z-50 backdrop-blur-md ${isDark ? 'bg-slate-950/80 border-b border-slate-800' : 'bg-white/80 border-b border-slate-200'}`}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <Brain className="w-5 h-5 text-primary" />
-              <span className="font-semibold text-foreground">Synaptigen24 Marketing Dashboard</span>
+              <Brain className={`w-8 h-8 ${isDark ? 'text-lime-400' : 'text-lime-600'}`} />
+              <span className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>SYNAPTIGEN</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Análise de Engenharia Reversa • Estratégias Criativas para Conversão
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                isDark
+                  ? 'bg-slate-800 text-yellow-400 hover:bg-slate-700'
+                  : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+              }`}
+            >
+              {isDark ? '☀️ Light' : '🌙 Dark'}
+            </button>
+          </div>
+        </nav>
+
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className={`absolute top-20 right-10 w-72 h-72 ${isDark ? 'bg-lime-400/10' : 'bg-lime-400/5'} rounded-full blur-3xl animate-pulse`}></div>
+            <div className={`absolute bottom-20 left-10 w-96 h-96 ${isDark ? 'bg-cyan-400/10' : 'bg-cyan-400/5'} rounded-full blur-3xl animate-pulse delay-1000`}></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              
+              {/* Left Content */}
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${isDark ? 'bg-lime-400/20 text-lime-300' : 'bg-lime-400/30 text-lime-700'}`}>
+                    🧠 Advanced Brain Support
+                  </div>
+                  
+                  <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    Transform Your <span className={isDark ? 'text-lime-400' : 'text-lime-600'}>Mind</span>
+                  </h1>
+                  
+                  <p className={`text-xl leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                    Experience crystal-clear memory, laser-focused attention, and sustained mental agility with our scientifically-formulated brain enhancement supplement.
+                  </p>
+                </div>
+
+                {/* Features List */}
+                <div className="space-y-3">
+                  {[
+                    { icon: Zap, text: 'Boost Memory & Focus' },
+                    { icon: Brain, text: 'Enhanced Cognitive Function' },
+                    { icon: Shield, text: 'Natural & Safe Formula' }
+                  ].map((feature, idx) => (
+                    <div key={idx} className={`flex items-center gap-3 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+                      <div className={`p-2 rounded-lg ${isDark ? 'bg-lime-400/20' : 'bg-lime-400/30'}`}>
+                        <feature.icon className={`w-5 h-5 ${isDark ? 'text-lime-400' : 'text-lime-600'}`} />
+                      </div>
+                      <span className="font-medium">{feature.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <button
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                    className={`group relative px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 overflow-hidden ${
+                      isDark
+                        ? 'bg-gradient-to-r from-lime-400 to-lime-500 text-slate-900 hover:shadow-2xl hover:shadow-lime-400/50'
+                        : 'bg-gradient-to-r from-lime-500 to-lime-600 text-white hover:shadow-2xl hover:shadow-lime-500/50'
+                    }`}
+                  >
+                    {/* Glow Effect */}
+                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isDark ? 'bg-lime-300/30' : 'bg-lime-400/30'} blur-xl`}></div>
+                    
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 overflow-hidden rounded-xl">
+                      <div className={`absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ${isDark ? 'bg-gradient-to-r from-transparent via-white/20 to-transparent' : 'bg-gradient-to-r from-transparent via-white/30 to-transparent'}`}></div>
+                    </div>
+
+                    <span className="relative flex items-center gap-2">
+                      Get Started Now
+                      <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isHovering ? 'translate-x-1' : ''}`} />
+                    </span>
+                  </button>
+
+                  <button className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border-2 ${
+                    isDark
+                      ? 'border-slate-600 text-slate-200 hover:border-lime-400 hover:text-lime-400 hover:bg-slate-900/50'
+                      : 'border-slate-300 text-slate-700 hover:border-lime-600 hover:text-lime-600 hover:bg-slate-100'
+                  }`}>
+                    Learn More
+                  </button>
+                </div>
+
+                {/* Trust Signals */}
+                <div className={`flex items-center gap-6 pt-4 text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                  <div className="flex items-center gap-2">
+                    <Check className={`w-5 h-5 ${isDark ? 'text-lime-400' : 'text-lime-600'}`} />
+                    <span>180-Day Guarantee</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className={`w-5 h-5 ${isDark ? 'text-lime-400' : 'text-lime-600'}`} />
+                    <span>100% Natural</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Image */}
+              <div className="relative">
+                <div className={`absolute inset-0 rounded-2xl blur-3xl ${isDark ? 'bg-gradient-to-br from-lime-400/20 to-cyan-400/20' : 'bg-gradient-to-br from-lime-400/10 to-cyan-400/10'}`}></div>
+                <div className="relative">
+                  <img
+                    src={productImageUrl}
+                    alt="Synaptigen Product"
+                    className="w-full h-auto object-contain drop-shadow-2xl"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Trust Section */}
+        <section className={`py-16 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-slate-900/50 border-y border-slate-800' : 'bg-slate-100/50 border-y border-slate-200'}`}>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { number: '12,643+', label: 'Satisfied Customers' },
+                { number: '96%', label: 'Reorder Rate' },
+                { number: '180', label: 'Day Guarantee' }
+              ].map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className={`text-4xl font-black mb-2 ${isDark ? 'text-lime-400' : 'text-lime-600'}`}>
+                    {stat.number}
+                  </div>
+                  <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <h2 className={`text-4xl sm:text-5xl font-black mb-16 text-center ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Why Choose Synaptigen?
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: Brain, title: 'Sharp Memory', desc: 'Scientifically formulated to support cognitive clarity' },
+                { icon: Zap, title: 'Laser Focus', desc: 'Eliminate brain fog and mental fatigue' },
+                { icon: Sparkles, title: 'Mental Agility', desc: 'Process information faster and more efficiently' },
+                { icon: Shield, title: 'Brain Health', desc: 'Long-term neuroprotection and cellular support' }
+              ].map((benefit, idx) => (
+                <div
+                  key={idx}
+                  className={`p-6 rounded-xl transition-all duration-300 hover:scale-105 ${
+                    isDark
+                      ? 'bg-slate-800/50 border border-slate-700 hover:border-lime-400/50 hover:bg-slate-800'
+                      : 'bg-slate-100/50 border border-slate-200 hover:border-lime-400/50 hover:bg-slate-100'
+                  }`}
+                >
+                  <benefit.icon className={`w-8 h-8 mb-4 ${isDark ? 'text-lime-400' : 'text-lime-600'}`} />
+                  <h3 className={`font-bold text-lg mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    {benefit.title}
+                  </h3>
+                  <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>
+                    {benefit.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Ingredients Section */}
+        <section className={`py-20 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-slate-900/50' : 'bg-slate-100/50'}`}>
+          <div className="max-w-7xl mx-auto">
+            <h2 className={`text-4xl sm:text-5xl font-black mb-16 text-center ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Proprietary Formula
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { name: 'Lactobacillus Paracasei', desc: 'Cognitive-specific probiotic for neural communication' },
+                { name: 'Inulin + Prebiotics', desc: 'Nourishes brain microbiota and nutrient absorption' },
+                { name: 'Natural Extracts', desc: 'Strawberry & mint: powerful antioxidants for brain protection' }
+              ].map((ingredient, idx) => (
+                <div
+                  key={idx}
+                  className={`p-8 rounded-xl text-center border-l-4 ${
+                    isDark
+                      ? 'bg-slate-800/50 border-l-lime-400'
+                      : 'bg-slate-100/50 border-l-lime-600'
+                  }`}
+                >
+                  <h3 className={`font-bold text-lg mb-3 ${isDark ? 'text-lime-400' : 'text-lime-600'}`}>
+                    {ingredient.name}
+                  </h3>
+                  <p className={isDark ? 'text-slate-400' : 'text-slate-600'}>
+                    {ingredient.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className={`text-4xl sm:text-5xl font-black mb-6 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+              Ready to Transform Your Mind?
+            </h2>
+            <p className={`text-xl mb-10 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+              Join thousands of customers experiencing enhanced memory, focus, and cognitive clarity.
+            </p>
+
+            <button className={`group relative px-10 py-5 rounded-xl font-bold text-xl transition-all duration-300 overflow-hidden ${
+              isDark
+                ? 'bg-gradient-to-r from-lime-400 to-lime-500 text-slate-900 hover:shadow-2xl hover:shadow-lime-400/50'
+                : 'bg-gradient-to-r from-lime-500 to-lime-600 text-white hover:shadow-2xl hover:shadow-lime-500/50'
+            }`}>
+              {/* Glow Effect */}
+              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isDark ? 'bg-lime-300/30' : 'bg-lime-400/30'} blur-xl`}></div>
+              
+              {/* Shine Effect */}
+              <div className="absolute inset-0 overflow-hidden rounded-xl">
+                <div className={`absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ${isDark ? 'bg-gradient-to-r from-transparent via-white/20 to-transparent' : 'bg-gradient-to-r from-transparent via-white/30 to-transparent'}`}></div>
+              </div>
+
+              <span className="relative flex items-center justify-center gap-2">
+                Order Now - 180 Day Money Back Guarantee
+                <ArrowRight className="w-5 h-5" />
+              </span>
+            </button>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className={`py-12 px-4 sm:px-6 lg:px-8 border-t ${isDark ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
+          <div className="max-w-7xl mx-auto text-center">
+            <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-600'}`}>
+              © 2026 Synaptigen. All rights reserved. These statements have not been evaluated by the FDA.
             </p>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }

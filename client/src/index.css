@@ -156,6 +156,26 @@
   }
 }
 
+@layer utilities {
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  .animate-shine {
+    animation: shine 3s infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+}
+
 @layer components {
   /**
    * Custom container utility that centers content and adds responsive padding.
