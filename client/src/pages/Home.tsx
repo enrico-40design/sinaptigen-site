@@ -2,10 +2,6 @@ import { useState } from 'react';
 import { ArrowRight, Check, Zap, Brain, Shield, Sparkles } from 'lucide-react';
 
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
-
   const [isHovering, setIsHovering] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
